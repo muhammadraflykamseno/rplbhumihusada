@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMK Teknologi Nusantara</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+html{ scroll-behavior:smooth; }
+
+body{
+    background:#f1f5f9;
+    color:#1e293b;
+    transition:0.4s;
+}
+
+.dark{
+    background:#0f172a;
+    color:white;
+}
+
+/* NAVBAR */
+nav{
+    width:100%;
+    background:#0f172a;
+    padding:18px 0;
+    text-align:center;
+    position:fixed;
+    top:0;
+    z-index:1000;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 20px;
+    font-weight:500;
+}
+
+.toggle-btn{
+    position:absolute;
+    right:20px;
+    top:15px;
+    background:#38bdf8;
+    border:none;
+    padding:8px 15px;
+    border-radius:20px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+/* HERO */
+.hero{
+    height:100vh;
+    background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+    url('rpl.jpg') center/cover no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
+
+.hero h1{ font-size:50px; }
+.hero p{ margin-top:15px; }
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:12px 35px;
+    background:#38bdf8;
+    color:white;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn:hover{ background:#0ea5e9; }
+
+/* SECTION */
+.section{
+    padding:120px 10%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:32px;
+    margin-bottom:60px;
+    position:relative;
+}
+
+.section-title::after{
+    content:'';
+    width:90px;
+    height:4px;
+    background:#38bdf8;
+    display:block;
+    margin:15px auto 0;
+    border-radius:10px;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+/* JURUSAN */
+.jurusan{
+    padding:120px 10%;
+    background:#f8fafc;
+    text-align:center;
+}
+
+.dark .jurusan{
+    background:#0f172a;
+}
+
+.card-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+    margin-top:50px;
+}
+
+.description-box{
+    margin-top:40px;
+    padding:30px;
+    background:white;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    max-width:700px;
+    margin-left:auto;
+    margin-right:auto;
+    transition:0.3s;
+}
+
+.dark .description-box{
+    background:#1e293b;
+}
+
+.card{
+    background:white;
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    transition:0.4s;
+    text-align:center;
+    opacity:0;
+    transform:translateY(40px);
+}
+
+.dark .card{
+    background:#1e293b;
+}
+
+.card.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+/* FORM */
+form input, form textarea{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+form button{
+    padding:12px 25px;
+    background:#38bdf8;
+    border:none;
+    color:white;
+    border-radius:20px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+/* FOOTER */
+.footer{
+    background:#0f172a;
+    color:white;
+    padding:60px 10%;
+}
+
+.footer-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:40px;
+}
+
+.footer-box{
+    flex:1;
+    min-width:250px;
+}
+
+.footer hr{
+    margin:40px 0 20px;
+    border:none;
+    height:1px;
+    background:#334155;
+}
+
+.footer-bottom{
+    text-align:center;
+    color:#94a3b8;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#profil">Profil</a>
+<a href="#jurusan">Jurusan</a>
+<a href="#pendaftaran">Pendaftaran</a>
+<a href="#kontak">Kontak</a>
+<button class="toggle-btn" onclick="toggleDark()">🌙</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+<div>
+<h1>SMK BHUMI HUSADA JAKARTA</h1>
+<p>Jurusan Rekayasa Perangkat Lunak (RPL)</p>
+<p>Belajar Coding • Web • Mobile • UI/UX</p>
+<a href="#pendaftaran" class="btn">Daftar Sekarang</a>
+</div>
+</section>
+
+<!-- PROFIL -->
+<section class="section" id="profil">
+<h2 class="section-title">Profil Sekolah</h2>
+
+<div class="grid">
+    <div class="card show">
+        <h3>Sekolah Modern</h3>
+        <p>Sekolah berbasis teknologi modern dan pembelajaran digital.</p>
+    </div>
+
+    <div class="card show">
+        <h3>Alamat</h3>
+        <p>Jl. Penganten Ali, Jakarta</p>
+    </div>
+
+    <div class="card show">
+        <h3>Visi</h3>
+        <p>Mencetak generasi IT yang unggul, kreatif, dan berakhlak.</p>
+    </div>
+</div>
+</section>
+<!-- JURUSAN -->
+<section class="jurusan section" id="jurusan">
+<h2 class="section-title">Jurusan RPL</h2>
+
+<div class="card-container">
+    <div class="card show" onclick="showDesc('web')">
+        <h3>Web Development</h3>
+        <p>Klik untuk melihat detail</p>
+    </div>
+
+    <div class="card show" onclick="showDesc('mobile')">
+        <h3>Mobile Development</h3>
+        <p>Klik untuk melihat detail</p>
+    </div>
+
+    <div class="card show" onclick="showDesc('uiux')">
+        <h3>UI/UX Design</h3>
+        <p>Klik untuk melihat detail</p>
+    </div>
+</div>
+
+<div id="description" class="description-box">
+    <p>Klik salah satu bidang untuk melihat penjelasan.</p>
+</div>
+
+</section>
+
+<!-- PENDAFTARAN -->
+<section class="section" id="pendaftaran">
+<h2 class="section-title">Form Pendaftaran 2026/2027</h2>
+<div class="card show">
+<form>
+<input type="text" placeholder="Nama Lengkap">
+<input type="email" placeholder="Email">
+<input type="text" placeholder="No Telepon">
+<textarea placeholder="Alamat"></textarea>
+<button type="submit">Kirim Pendaftaran</button>
+</form>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="kontak">
+<div class="footer-container">
+<div class="footer-box">
+<h3>SMK BHUMI HUSADA</h3>
+<p>Jurusan Rekayasa Perangkat Lunak</p>
+<p>Jl. Peganten ali</p>
+</div>
+<div class="footer-box">
+<h3>Kontak Kami</h3>
+<p>Email: info@smkbhumihusada.ch.id</p>
+<p>Telepon: 0858-9435-7806</p>
+<p>Instagram: @smkbhumihusada</p>
+</div>
+</div>
+<hr>
+<div class="footer-bottom">
+© 2026 SMK BHUMI HUSADA | Jurusan RPL
+</div>
+</footer>
+
+<script>
+function showDesc(type) {
+    let desc = document.getElementById("description");
+
+    if(type === "web"){
+        desc.innerHTML = "<h3>Web Development</h3><p>Belajar membuat website menggunakan HTML, CSS, JavaScript, dan PHP. Cocok untuk menjadi Web Developer atau Backend Developer.</p>";
+    }
+
+    if(type === "mobile"){
+        desc.innerHTML = "<h3>Mobile Development</h3><p>Belajar membuat aplikasi Android atau iOS menggunakan Flutter atau Java. Cocok untuk menjadi App Developer.</p>";
+    }
+
+    if(type === "uiux"){
+        desc.innerHTML = "<h3>UI/UX Design</h3><p>Belajar mendesain tampilan aplikasi yang menarik dan nyaman digunakan menggunakan Figma dan tools desain lainnya.</p>";
+    }
+
+    function toggleDark(){
+    document.body.classList.toggle("dark");
+    }
+
+}
+
+const cards = document.querySelectorAll('.card');
+
+window.addEventListener('scroll', () => {
+    cards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+        if(cardTop < window.innerHeight - 100){
+            card.classList.add('show');
+        }
+    });
+});
+</script>
+
+</body>
+</html>
